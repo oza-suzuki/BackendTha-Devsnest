@@ -1,0 +1,11 @@
+1. REST
+REST (short for ‘Representational State Transfer’) is a web services API. REST APIs are a key part in modern web applications, including Netflix, Facebook, and many others.
+
+
+2. RPC
+An RPC (Remote Procedure Call) APIs are the oldest and simplest types of API. The goal of an RPC is for the client to execute code on a server. The main benefit of RPC APIs is they make it easier for developers to create applications involving multiple programs or services.
+
+3. A SOAP (Simple Object Access Protocol) API is similar to REST in that it’s a type of Web API.
+
+SOAP entered the web development scene in the late 1990s, around the time service oriented architecture (SOA) took-off. SOAP was the first to standardize the way applications should use network connections to manage services.
+
