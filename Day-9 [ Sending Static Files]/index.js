@@ -13,10 +13,13 @@ app.set("view engine", "jade"); //jade is used for view engine.
 app.use("/", (req, res) => {
   //send filetype = text
   //res.sendFile(path.join(__dirname, "public/Hello.txt"));
+
   //send filetype = json
   //res.sendFile(path.join(__dirname, "public/download.jpg"));
+
   //downloads file on loads web-page.
   // res.download(path.join(__dirname, "public/Hello.json"));
+
   //downloads image file on loads webpage.
   //res.download(path.join(__dirname, "public/download.jpg"), "test.jpg");
 
