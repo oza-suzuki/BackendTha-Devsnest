@@ -6,7 +6,7 @@ level - 1
  * 
 */
 
-const { emailValidate, passwordValidate } = require("../utils/emailValidate");
+const { emailValidate, passwordValidate } = require("../utils/Validate");
 
 const registerInitialCheck = (req, res, next) => {
   const { email, password, confirmPassword } = req.body;

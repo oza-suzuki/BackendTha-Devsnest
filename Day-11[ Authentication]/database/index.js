@@ -9,7 +9,7 @@ const sequelize = new Sequelize(
 
   "postgres",
   "postgres",
-  "123456789",
+  "Samsung@123",
   {
     host: "localhost",
     dialect: "postgres", //mySql can be also written.
