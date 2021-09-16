@@ -9,6 +9,7 @@ level - 1
 const { emailValidate, passwordValidate } = require("../utils/Validate");
 
 const registerInitialCheck = (req, res, next) => {
+  console.log("i am here");
   const { email, password, confirmPassword } = req.body;
   if (
     typeof email === "string" &&

@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
     password
     */
 
-  "postgres",
+  "devs",
   "postgres",
   "Samsung@123",
   {

@@ -11,7 +11,7 @@ const bcrypt = require("bcrypt");
 const saltRounds = 10;
 
 const register = async (req, res) => {
-  // console.log(req.body);
+  //console.log(req.body);
   const { email, password } = req.body;
 
   try {
@@ -28,7 +28,7 @@ const register = async (req, res) => {
         fullName: "testUser",
       });
       const savedUser = await newUser.save();
-      res.status(201).send("User registered!");
+      res.status(201).send(savedUser);
     }
   } catch (err) {
     console.log(err);
