@@ -4,6 +4,7 @@ var path = require("path");
 var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const { SECRET } = require("./config/index");
+var passport = require("passport"); //google/fb authentication
 
 //redis
 const { redisClient, RedisStore, session } = require("./database/redis");
@@ -22,6 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(passport.initialize());
 
 // redis middleware
 app.use(
@@ -38,8 +40,13 @@ app.use(
   })
 );
 
+// passport middleware
+app.use(passport.initialize());
+require("./middlewares/passport")(passport);
+
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+app.use("/passport", require("./routes/passport"));
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

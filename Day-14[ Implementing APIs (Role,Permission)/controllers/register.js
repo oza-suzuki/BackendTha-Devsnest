@@ -15,7 +15,14 @@ const register = async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const alreadyExists = await User.findOne({ where: { email } });
+    //const alreadyExists = await User.findOne({ where: { email } });
+    // const alreadyExists = await User.findOne({
+    //   where: {
+    //     login: req.body.login,
+    //   },
+    // });
+    const alreadyExists = await User.findOne({ where: { email: email } });
+
     if (alreadyExists) {
       res.status(401).send("Email already exists.");
     } else {
@@ -42,6 +49,11 @@ const registerSuperAdmin = async (req, res) => {
 
   try {
     const alreadyExists = await User.findOne({ where: { email } });
+    // const alreadyExists = await User.findOne({
+    //   where: {
+    //     login: req.body.login,
+    //   },
+    // });
     if (alreadyExists) {
       res.status(401).send("Email already exists.");
     } else {
@@ -52,7 +64,7 @@ const registerSuperAdmin = async (req, res) => {
         email: email.toLowerCase(),
         password: hash,
         fullName: "testUser",
-        role: "superadmin",
+        role: "super-admin",
       });
       const savedUser = await newUser.save();
       req.session.User = savedUser;

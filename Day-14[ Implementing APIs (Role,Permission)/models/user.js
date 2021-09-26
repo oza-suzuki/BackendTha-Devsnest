@@ -9,7 +9,16 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    role: {
+      type: DataTypes.STRING,
+      default: "user",
+      enum: ["user", "admin", "superadmin"],
+    },
     email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    username: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -17,13 +26,12 @@ const User = sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    role: {
-      type: DataTypes.STRING,
-      default: "user",
-    },
   },
   {
     freezeTableName: true,
+  },
+  {
+    timeStamps: true,
   }
 );
 
