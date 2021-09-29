@@ -3,20 +3,20 @@ const sequelize = require("../database/index");
 
 //User is an Table Name
 const User = sequelize.define(
-  "User",
+  "users",
   {
-    fullName: {
+    name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     role: {
       type: DataTypes.STRING,
-      default: "user",
-      enum: ["user", "admin", "superadmin"],
-    },
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      defaultValue: "user",
+      //enum: ["user", "admin", "superadmin"],
     },
     username: {
       type: DataTypes.STRING,

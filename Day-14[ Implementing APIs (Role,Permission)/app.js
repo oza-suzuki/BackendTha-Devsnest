@@ -5,6 +5,9 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const { SECRET } = require("./config/index");
 var passport = require("passport"); //google/fb authentication
+//require("./database/index");
+
+require("./database/mongo");
 
 //redis
 const { redisClient, RedisStore, session } = require("./database/redis");
@@ -19,11 +22,10 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
 
 app.use(logger("dev"));
-app.use(express.json());
+app.use(express.json()); //instead of bodyparser
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "public")));
-app.use(passport.initialize());
 
 // redis middleware
 app.use(

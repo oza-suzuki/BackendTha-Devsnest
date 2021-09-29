@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var registerInitialCheck = require("../middlewares/registerChecks");
-var { register, registerSuperAdmin } = require("../controllers/register");
+var register = require("../controllers/register");
 var check = require("../middlewares/checkSuperAdmin");
 
 /* GET home page. */
@@ -24,10 +24,7 @@ router.get("/super", check);
  * Security, performance and edge cases
  */
 
-router.post("/register", (registerInitialCheck, register));
-router.post(
-  "/register-super-admin",
-  (registerInitialCheck, registerSuperAdmin)
-);
+router.post("/register", registerInitialCheck, register);
+//router.post("/register-super-admin", registerInitialCheck, registerSuperAdmin);
 
 module.exports = router;

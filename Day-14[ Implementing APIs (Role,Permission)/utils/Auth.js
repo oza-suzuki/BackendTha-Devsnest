@@ -1,7 +1,7 @@
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const passport = require("passport");
-const User = require("../models/user");
+const User = require("../models/mongo");
 const { SECRET } = require("../config");
 
 /**
@@ -122,10 +122,11 @@ const userAuth = passport.authenticate("jwt", { session: false });
 /**
  * @DESC Check Role Middleware
  */
-const checkRole = (roles) => (req, res, next) =>
+const checkRole = (roles) => (req, res, next) => {
   !roles.includes(req.user.role)
     ? res.status(401).json("Unauthorized")
     : next();
+};
 
 const validateEmail = async (email) => {
   let user = await User.findOne({ email });

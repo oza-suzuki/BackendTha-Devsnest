@@ -1,7 +1,6 @@
-const User = require("../models/user");
+const User = require("../models/mongo"); //CAN use user
 const { SECRET } = require("../config/index");
 const { Strategy, ExtractJwt } = require("passport-jwt");
-const passport = require("passport");
 
 const opts = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
