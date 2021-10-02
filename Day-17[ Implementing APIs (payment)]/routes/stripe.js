@@ -12,6 +12,7 @@ router.post("/payment", async (req, res) => {
   try {
     const session = await stripe.checkout.sessions.create({
       line_items: [
+        //line_items means information user information.
         {
           amount: req.body.price * 100,
           name: "Cart",
