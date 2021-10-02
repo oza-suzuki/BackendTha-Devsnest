@@ -1,12 +1,12 @@
 const emailValidate = (email) => {
-  const re =
-    /^[a-zA-Z0-9.! #$%&'*+/=? ^_`{|}~-]+@[a-zA-Z0-9-]+(?:\. [a-zA-Z0-9-]+)*$/;
+  const re =/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   return re.test(email);
 };
 
-// Minimum eight characters, at least one letter and one number:
+//  * Minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character
 const passwordValidate = (password) => {
-  var re = "^(?=.*[A-Za-z])(?=.*d)[A-Za-zd]{8,}$";
+  var re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
   return re.test(password);
 };
 

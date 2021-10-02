@@ -9,7 +9,7 @@ level - 1
 const { emailValidate, passwordValidate } = require("../utils/Validate");
 
 const registerInitialCheck = (req, res, next) => {
-  console.log("i am here");
+  //console.log("i am here");
   const { email, password, confirmPassword } = req.body;
   if (
     typeof email === "string" &&
@@ -21,8 +21,11 @@ const registerInitialCheck = (req, res, next) => {
     emailValidate(email) &&
     passwordValidate(password)
   ) {
+    console.log("veerzz");
     next();
   } else {
+    //clg
+    //console.log(req.body);
     res.status(401).send("Initial checks fail");
   }
 };

@@ -12,7 +12,7 @@ const sequelize = new Sequelize(
   "Samsung@123",
   {
     host: "localhost",
-    dialect: "postgres", //mySql can be also written.
+    dialect: "mongo", //mySql can be also written.
   }
 );
 

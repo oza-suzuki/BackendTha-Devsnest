@@ -7,6 +7,9 @@ var logger = require("morgan");
 //redis
 const { redisClient, RedisStore, session } = require("./database/redis");
 
+//mongodb
+require("./database/mongo");
+
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 

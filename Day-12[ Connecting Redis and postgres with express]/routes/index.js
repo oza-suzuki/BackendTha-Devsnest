@@ -21,6 +21,6 @@ router.get("/test", function (req, res, next) {
  * Security, performance and edge cases
  */
 
-router.post("/register", (registerInitialCheck, register));
+router.post("/register", registerInitialCheck, register);
 
 module.exports = router;
